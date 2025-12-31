@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-cloud</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-common</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-common</name>
+    <description>公共通用模块 - 核心底座</description>
+
+    <modules>
+        <module>mifss-common-core</module>
+        <module>mifss-common-redis</module>
+        <module>mifss-common-security</module>
+        <module>mifss-common-datascope</module>
+        <module>mifss-common-file</module>
+        <module>mifss-common-mq</module>
+        <module>mifss-common-log</module>
+        <module>mifss-common-swagger</module>
+    </modules>
+</project>

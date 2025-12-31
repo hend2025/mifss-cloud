@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-modules</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-bio</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-bio</name>
+    <description>生物识别：人�?指静脉特征提取与比对</description>
+
+    <modules>
+        <module>mifss-bio-biz</module>
+        <module>mifss-bio-generic</module>
+        <module>mifss-bio-ali</module>
+        <module>mifss-bio-huawei</module>
+        <module>mifss-bio-tencent</module>
+    </modules>
+</project>

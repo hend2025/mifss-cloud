@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-modules</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-openapi</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-openapi</name>
+    <description>对外门户：统一网关、第三方对接</description>
+
+    <modules>
+        <module>mifss-openapi-biz</module>
+        <module>mifss-openapi-generic</module>
+        <module>mifss-openapi-ali</module>
+        <module>mifss-openapi-huawei</module>
+        <module>mifss-openapi-tencent</module>
+    </modules>
+</project>

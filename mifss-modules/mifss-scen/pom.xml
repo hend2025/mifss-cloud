@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-modules</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-scen</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-scen</name>
+    <description>智能监控：住院/门诊/购药/视频流分析</description>
+
+    <modules>
+        <module>mifss-scen-biz</module>
+        <module>mifss-scen-generic</module>
+        <module>mifss-scen-ali</module>
+        <module>mifss-scen-huawei</module>
+        <module>mifss-scen-tencent</module>
+    </modules>
+</project>

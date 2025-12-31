@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-modules</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-base</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-base</name>
+    <description>基础支撑：两定机构、医护、字典、监管方案</description>
+
+    <modules>
+        <module>mifss-base-biz</module>
+        <module>mifss-base-generic</module>
+        <module>mifss-base-ali</module>
+        <module>mifss-base-huawei</module>
+        <module>mifss-base-tencent</module>
+    </modules>
+</project>

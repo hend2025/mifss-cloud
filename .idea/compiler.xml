@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="BUILD_PROCESS_HEAP_SIZE" value="2048" />
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mifss-chrdise-generic" />
+        <module name="mifss-base-generic" />
+        <module name="mifss-scen-tencent" />
+        <module name="mifss-audit-huawei" />
+        <module name="mifss-base-huawei" />
+        <module name="mifss-openapi-tencent" />
+        <module name="mifss-chrdise-huawei" />
+        <module name="mifss-common-mq" />
+        <module name="mifss-common-security" />
+        <module name="mifss-bio-generic" />
+        <module name="mifss-audit-tencent" />
+        <module name="mifss-openapi-huawei" />
+        <module name="mifss-intf-audit" />
+        <module name="mifss-chrdise-ali" />
+        <module name="mifss-intf-scen" />
+        <module name="mifss-openapi-biz" />
+        <module name="mifss-scen-huawei" />
+        <module name="mifss-bio-ali" />
+        <module name="mifss-openapi-ali" />
+        <module name="mifss-miaf-huawei" />
+        <module name="mifss-common-file" />
+        <module name="mifss-common-datascope" />
+        <module name="mifss-bio-biz" />
+        <module name="mifss-chrdise-biz" />
+        <module name="mifss-plugin-etl" />
+        <module name="mifss-common-log" />
+        <module name="mifss-audit-generic" />
+        <module name="mifss-audit-ali" />
+        <module name="mifss-chrdise-tencent" />
+        <module name="mifss-intf-base" />
+        <module name="mifss-scen-generic" />
+        <module name="mifss-audit-biz" />
+        <module name="mifss-base-tencent" />
+        <module name="mifss-intf-chrdise" />
+        <module name="mifss-openapi-generic" />
+        <module name="mifss-plugin-bi" />
+        <module name="mifss-base-biz" />
+        <module name="mifss-miaf-tencent" />
+        <module name="mifss-common-core" />
+        <module name="mifss-scen-biz" />
+        <module name="mifss-common-swagger" />
+        <module name="mifss-miaf-ali" />
+        <module name="mifss-common-redis" />
+        <module name="mifss-base-ali" />
+        <module name="mifss-scen-ali" />
+        <module name="mifss-intf-bio" />
+        <module name="mifss-miaf-generic" />
+        <module name="mifss-miaf-biz" />
+        <module name="mifss-intf-miaf" />
+        <module name="mifss-bio-huawei" />
+        <module name="mifss-bio-tencent" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="mifss-api" target="1.8" />
+      <module name="mifss-api-audit" target="1.8" />
+      <module name="mifss-api-base" target="1.8" />
+      <module name="mifss-api-bio" target="1.8" />
+      <module name="mifss-api-chrdise" target="1.8" />
+      <module name="mifss-api-miaf" target="1.8" />
+      <module name="mifss-api-scen" target="1.8" />
+      <module name="mifss-audit-core" target="1.8" />
+      <module name="mifss-base-core" target="1.8" />
+      <module name="mifss-bio-core" target="1.8" />
+      <module name="mifss-chrdise-core" target="1.8" />
+      <module name="mifss-miaf-core" target="1.8" />
+      <module name="mifss-openapi-core" target="1.8" />
+      <module name="mifss-scen-core" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

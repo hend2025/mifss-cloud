@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>mifss-modules</artifactId>
+        <groupId>com.mifss</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>mifss-miaf</artifactId>
+    <packaging>pom</packaging>
+    <name>mifss-miaf</name>
+    <description>反欺诈：大数据风控模型、异常行为分析</description>
+
+    <modules>
+        <module>mifss-miaf-biz</module>
+        <module>mifss-miaf-generic</module>
+        <module>mifss-miaf-ali</module>
+        <module>mifss-miaf-huawei</module>
+        <module>mifss-miaf-tencent</module>
+    </modules>
+</project>
