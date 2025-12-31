@@ -5,23 +5,36 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mifss</groupId>
-    <artifactId>mifss-cloud</artifactId>
+    <artifactId>mifss</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>mifss-cloud</name>
+    <name>mifss</name>
     <description>医保基金综合监管系统 - Medical Insurance Fund Supervision System</description>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+
         <spring-boot.version>2.0.9.RELEASE</spring-boot.version>
         <spring-cloud.version>Finchley.SR4</spring-cloud.version>
+
         <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <mysql.version>8.0.28</mysql.version>
-        <redis.version>2.9.0</redis.version>
+        <jedis.version>2.9.3</jedis.version>
+
         <minio.version>8.3.0</minio.version>
+
+        <hutool.version>5.7.17</hutool.version>
+        <fastjson.version>1.2.83</fastjson.version>
+        <commons.lang3.version>3.12.0</commons.lang3.version>
+
         <swagger.version>2.9.2</swagger.version>
+
+        <hsaf.core.version>1.2.5</hsaf.core.version>
+
     </properties>
 
     <modules>
@@ -61,10 +74,12 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

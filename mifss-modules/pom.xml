@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>mifss-cloud</artifactId>
+        <artifactId>mifss</artifactId>
         <groupId>com.mifss</groupId>
         <version>1.0.0</version>
     </parent>
@@ -12,7 +12,7 @@
     <artifactId>mifss-modules</artifactId>
     <packaging>pom</packaging>
     <name>mifss-modules</name>
-    <description>核心业务模块�?- 纯业务逻辑实现</description>
+    <description>核心业务模块 - 纯业务逻辑实现</description>
 
     <modules>
         <module>mifss-base</module>
@@ -23,4 +23,21 @@
         <module>mifss-audit</module>
         <module>mifss-openapi</module>
     </modules>
+
+    <dependencies>
+        <!-- 公共核心模块 -->
+        <dependency>
+            <groupId>com.mifss</groupId>
+            <artifactId>mifss-common-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Swagger文档模块 -->
+        <dependency>
+            <groupId>com.mifss</groupId>
+            <artifactId>mifss-common-swagger</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>
