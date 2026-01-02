@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mifss?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+
+# Dubbo 3 配置 - 服务提供者
+dubbo:
+  application:
+    name: mifss-base-generic
+    qos-enable: false
+    serialize-check-status: WARN
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 10000
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    timeout: 30000
+    retries: 0
+  scan:
+    base-packages: com.aeye.mifss.base
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.aeye.mifss
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
