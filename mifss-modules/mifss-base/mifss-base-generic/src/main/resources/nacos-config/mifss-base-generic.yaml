@@ -24,7 +24,7 @@ dubbo:
     timeout: 30000
     retries: 0
   scan:
-    base-packages: com.aeye.mifss.base
+    base-packages: com.aeye.mifss.base.mapper
 
 # MyBatis-Plus 配置
 mybatis-plus:
