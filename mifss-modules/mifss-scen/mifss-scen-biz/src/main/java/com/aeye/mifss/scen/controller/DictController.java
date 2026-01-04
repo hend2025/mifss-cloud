@@ -3,7 +3,6 @@ package com.aeye.mifss.scen.controller;
 import com.aeye.mifss.intf.base.dto.ScenDicDTO;
 import com.aeye.mifss.intf.base.service.RpcScenDicService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,16 +11,17 @@ import org.springframework.web.bind.annotation.*;
 public class DictController {
 
     @DubboReference
-    private RpcScenDicService scenDicAService;
+    private RpcScenDicService rpcScenDicService;
 
     @GetMapping("/{dicId}")
     public ScenDicDTO getById(@PathVariable("dicId") String dicId) throws Exception {
 
-        ScenDicDTO dto = null;
+        System.out.printf("getDicEntityById dicId=%s\n", dicId);
 
-        dto = scenDicAService.getOneRpc(new LambdaQueryWrapper<ScenDicDTO>().eq(ScenDicDTO::getDicId, dicId));
+        ScenDicDTO dto = rpcScenDicService.getOneRpc(new LambdaQueryWrapper<ScenDicDTO>().eq(ScenDicDTO::getDicId, dicId));
 
         return dto;
+
     }
 
 }
