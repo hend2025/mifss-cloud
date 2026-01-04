@@ -4,6 +4,7 @@ import cn.hsa.hsaf.core.framework.util.PageInfo;
 import cn.hsa.hsaf.core.framework.util.PageResult;
 import com.aeye.mifss.common.service.ILocalService;
 import com.aeye.mifss.common.service.IRpcService;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -179,6 +180,20 @@ public class AbstractRpcServiceImpl<Entity, DTO, BO extends IService<Entity>>
     @Override
     public DTO getOneRpcEx(QueryWrapper<DTO> queryWrapper, boolean throwEx) throws Exception {
         Entity entity = getOne(toEntityQueryWrapper(queryWrapper), throwEx);
+        return toDto(entity);
+    }
+
+    @Override
+    public DTO getOneRpcExLambda(LambdaQueryWrapper<DTO> queryWrapper, boolean throwEx) throws Exception {
+        // LambdaQueryWrapper 可以直接获取 SQL 片段，转换为 Entity 的 QueryWrapper
+        QueryWrapper<Entity> entityWrapper = new QueryWrapper<>();
+        String sqlSegment = queryWrapper.getCustomSqlSegment();
+        Map<String, Object> paramNameValuePairs = queryWrapper.getParamNameValuePairs();
+        if (sqlSegment != null && !sqlSegment.isEmpty()) {
+            entityWrapper.apply(sqlSegment.replace("ew.paramNameValuePairs.", ""),
+                    paramNameValuePairs.values().toArray());
+        }
+        Entity entity = getOne(entityWrapper, throwEx);
         return toDto(entity);
     }
 

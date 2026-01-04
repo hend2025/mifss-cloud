@@ -1,6 +1,7 @@
 package com.aeye.mifss.common.service;
 
 import cn.hsa.hsaf.core.framework.util.PageResult;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +11,7 @@ import java.util.List;
 
 public interface IRpcService<DTO> {
 
-    default int countAllRpc() throws Exception{
+    default int countAllRpc() throws Exception {
         return this.countRpc(Wrappers.emptyWrapper());
     }
 
@@ -32,9 +33,15 @@ public interface IRpcService<DTO> {
         return this.getOneRpcEx(queryWrapper, false);
     }
 
+    default DTO getOneRpc(LambdaQueryWrapper<DTO> queryWrapper) throws Exception {
+        return this.getOneRpcExLambda(queryWrapper, false);
+    }
+
     DTO getListOneRpc(QueryWrapper<DTO> queryWrapper) throws Exception;
 
     DTO getOneRpcEx(QueryWrapper<DTO> queryWrapper, boolean throwEx) throws Exception;
+
+    DTO getOneRpcExLambda(LambdaQueryWrapper<DTO> queryWrapper, boolean throwEx) throws Exception;
 
     List<DTO> listRpc(QueryWrapper<DTO> queryWrapper) throws Exception;
 
