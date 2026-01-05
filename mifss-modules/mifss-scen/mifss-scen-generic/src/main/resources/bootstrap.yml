@@ -4,8 +4,10 @@ spring:
   cloud:
     nacos:
       config:
+        enabled: false  # 开发环境禁用 Nacos 配置，使用本地 application.yml
         server-addr: 127.0.0.1:8848
         namespace: hend
         group: DEFAULT_GROUP
         file-extension: yaml
         prefix: mifss-scen-generic
+
