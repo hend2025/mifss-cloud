@@ -1,10 +1,12 @@
 package com.aeye.mifss.scen.controller;
 
+import com.aeye.mifss.common.wrapper.RpcQueryWrapper;
 import com.aeye.mifss.intf.base.dto.ScenDicDTO;
 import com.aeye.mifss.intf.base.service.RpcScenDicService;
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/dict")
@@ -14,13 +16,16 @@ public class DictController {
     private RpcScenDicService rpcScenDicService;
 
     @GetMapping("/{dicId}")
-    public ScenDicDTO getById(@PathVariable("dicId") String dicId) throws Exception {
+    public List<ScenDicDTO> getById(@PathVariable("dicId") String dicId) throws Exception {
 
-        System.out.printf("getDicEntityById dicId=%s\n", dicId);
+        List<ScenDicDTO> list = rpcScenDicService.listRpc(
+                new RpcQueryWrapper<ScenDicDTO>()
+                        .select(ScenDicDTO::getDicId,ScenDicDTO::getDicName)
+                        .eq(ScenDicDTO::getDicId, dicId)
+                        .orderByAsc(ScenDicDTO::getDicName)
+        );
 
-        ScenDicDTO dto = rpcScenDicService.getOneRpc(new LambdaQueryWrapper<ScenDicDTO>().eq(ScenDicDTO::getDicId, dicId));
-
-        return dto;
+        return list;
 
     }
 

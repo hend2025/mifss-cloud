@@ -1,7 +1,9 @@
 package com.aeye.mifss.common.service.impl;
 
 import com.aeye.mifss.common.service.IRpcService;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.aeye.mifss.common.wrapper.RpcQueryWrapper;
+import com.aeye.mifss.common.wrapper.RpcUpdateWrapper;
+import com.aeye.mifss.common.wrapper.RpcWrapperConverter;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -97,18 +99,6 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
         return entityList.stream().map(this::toDto).collect(Collectors.toList());
     }
 
-    /**
-     * Wrapper<DTO> 转 Wrapper<Entity>
-     * 由于 Wrapper 内部存储的是 SQL 字符串条件，只要 DTO 和 Entity 字段名一致即可直接转换
-     */
-    protected Wrapper<Entity> toEntityWrapper(Wrapper<DTO> dtoWrapper) {
-        if (dtoWrapper == null) {
-            return null;
-        }
-        // Wrapper 内部使用字符串存储条件，字段名相同时可以直接强转
-        return (Wrapper<Entity>) (Wrapper<?>) dtoWrapper;
-    }
-
     // ==================== Save 操作 ====================
 
     @Override
@@ -154,8 +144,8 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public boolean removeRpc(Wrapper<DTO> queryWrapper) {
-        return bo.remove(toEntityWrapper(queryWrapper));
+    public boolean removeRpc(RpcQueryWrapper<DTO> queryWrapper) {
+        return bo.remove(RpcWrapperConverter.toQueryWrapper(queryWrapper));
     }
 
     // ==================== Update 操作 ====================
@@ -181,18 +171,18 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public boolean updateRpc(Wrapper<DTO> updateWrapper) {
-        return bo.update(toEntityWrapper(updateWrapper));
+    public boolean updateRpc(RpcUpdateWrapper<DTO> updateWrapper) {
+        return bo.update(RpcWrapperConverter.toUpdateWrapper(updateWrapper));
     }
 
     @Override
-    public boolean updateRpc(DTO dto, Wrapper<DTO> updateWrapper) {
-        return bo.update(toEntity(dto), toEntityWrapper(updateWrapper));
+    public boolean updateRpc(DTO dto, RpcUpdateWrapper<DTO> updateWrapper) {
+        return bo.update(toEntity(dto), RpcWrapperConverter.toUpdateWrapper(updateWrapper));
     }
 
     @Override
-    public boolean saveOrUpdateRpc(DTO dto, Wrapper<DTO> updateWrapper) {
-        return bo.saveOrUpdate(toEntity(dto), toEntityWrapper(updateWrapper));
+    public boolean saveOrUpdateRpc(DTO dto, RpcUpdateWrapper<DTO> updateWrapper) {
+        return bo.saveOrUpdate(toEntity(dto), RpcWrapperConverter.toUpdateWrapper(updateWrapper));
     }
 
     // ==================== Get 查询操作 ====================
@@ -203,13 +193,13 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public DTO getOneRpc(Wrapper<DTO> queryWrapper) {
-        return toDto(bo.getOne(toEntityWrapper(queryWrapper)));
+    public DTO getOneRpc(RpcQueryWrapper<DTO> queryWrapper) {
+        return toDto(bo.getOne(RpcWrapperConverter.toQueryWrapper(queryWrapper)));
     }
 
     @Override
-    public DTO getOneRpc(Wrapper<DTO> queryWrapper, boolean throwEx) {
-        return toDto(bo.getOne(toEntityWrapper(queryWrapper), throwEx));
+    public DTO getOneRpc(RpcQueryWrapper<DTO> queryWrapper, boolean throwEx) {
+        return toDto(bo.getOne(RpcWrapperConverter.toQueryWrapper(queryWrapper), throwEx));
     }
 
     // ==================== List 查询操作 ====================
@@ -230,8 +220,8 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public List<DTO> listRpc(Wrapper<DTO> queryWrapper) {
-        return toDtoList(bo.list(toEntityWrapper(queryWrapper)));
+    public List<DTO> listRpc(RpcQueryWrapper<DTO> queryWrapper) {
+        return toDtoList(bo.list(RpcWrapperConverter.toQueryWrapper(queryWrapper)));
     }
 
     // ==================== Page 分页查询操作 ====================
@@ -249,11 +239,11 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public IPage<DTO> pageRpc(IPage<DTO> page, Wrapper<DTO> queryWrapper) {
+    public IPage<DTO> pageRpc(IPage<DTO> page, RpcQueryWrapper<DTO> queryWrapper) {
         // 创建 Entity 分页对象
         Page<Entity> entityPage = new Page<>(page.getCurrent(), page.getSize());
         // 执行分页查询
-        IPage<Entity> resultPage = bo.page(entityPage, toEntityWrapper(queryWrapper));
+        IPage<Entity> resultPage = bo.page(entityPage, RpcWrapperConverter.toQueryWrapper(queryWrapper));
         // 转换结果
         Page<DTO> dtoPage = new Page<>(resultPage.getCurrent(), resultPage.getSize(), resultPage.getTotal());
         dtoPage.setRecords(toDtoList(resultPage.getRecords()));
@@ -268,8 +258,8 @@ public class RpcServiceImpl<BO extends IService<Entity>, Entity, DTO> implements
     }
 
     @Override
-    public long countRpc(Wrapper<DTO> queryWrapper) {
-        return bo.count(toEntityWrapper(queryWrapper));
+    public long countRpc(RpcQueryWrapper<DTO> queryWrapper) {
+        return bo.count(RpcWrapperConverter.toQueryWrapper(queryWrapper));
     }
 
 }

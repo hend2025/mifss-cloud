@@ -20,8 +20,6 @@ public class DictController {
     @GetMapping("/{dicId}")
     public ScenDicEntity getById(@PathVariable("dicId") String dicId) throws Exception {
 
-        System.out.printf("getDicEntityById dicId=%s\n", dicId);
-
         ScenDicEntity dto = scenDicService.getOne(new LambdaQueryWrapper<ScenDicEntity>().eq(ScenDicEntity::getDicId, dicId));
 
         return dto;

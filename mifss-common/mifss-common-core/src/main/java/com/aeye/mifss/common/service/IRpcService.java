@@ -1,6 +1,7 @@
 package com.aeye.mifss.common.service;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.aeye.mifss.common.wrapper.RpcQueryWrapper;
+import com.aeye.mifss.common.wrapper.RpcUpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
 import java.io.Serializable;
@@ -63,7 +64,7 @@ public interface IRpcService<DTO> {
     /**
      * 根据条件删除
      */
-    boolean removeRpc(Wrapper<DTO> queryWrapper);
+    boolean removeRpc(RpcQueryWrapper<DTO> queryWrapper);
 
     // ==================== Update 操作 ====================
 
@@ -90,17 +91,17 @@ public interface IRpcService<DTO> {
     /**
      * 根据条件更新
      */
-    boolean updateRpc(Wrapper<DTO> updateWrapper);
+    boolean updateRpc(RpcUpdateWrapper<DTO> updateWrapper);
 
     /**
      * 根据条件更新
      */
-    boolean updateRpc(DTO dto, Wrapper<DTO> updateWrapper);
+    boolean updateRpc(DTO dto, RpcUpdateWrapper<DTO> updateWrapper);
 
     /**
      * 根据条件保存或更新
      */
-    boolean saveOrUpdateRpc(DTO dto, Wrapper<DTO> updateWrapper);
+    boolean saveOrUpdateRpc(DTO dto, RpcUpdateWrapper<DTO> updateWrapper);
 
     // ==================== Get 查询操作 ====================
 
@@ -112,12 +113,12 @@ public interface IRpcService<DTO> {
     /**
      * 根据条件查询一条记录
      */
-    DTO getOneRpc(Wrapper<DTO> queryWrapper);
+    DTO getOneRpc(RpcQueryWrapper<DTO> queryWrapper);
 
     /**
      * 根据条件查询一条记录
      */
-    DTO getOneRpc(Wrapper<DTO> queryWrapper, boolean throwEx);
+    DTO getOneRpc(RpcQueryWrapper<DTO> queryWrapper, boolean throwEx);
 
     // ==================== List 查询操作 ====================
 
@@ -139,7 +140,7 @@ public interface IRpcService<DTO> {
     /**
      * 根据条件查询列表
      */
-    List<DTO> listRpc(Wrapper<DTO> queryWrapper);
+    List<DTO> listRpc(RpcQueryWrapper<DTO> queryWrapper);
 
     // ==================== Page 分页查询操作 ====================
 
@@ -151,7 +152,7 @@ public interface IRpcService<DTO> {
     /**
      * 分页查询
      */
-    IPage<DTO> pageRpc(IPage<DTO> page, Wrapper<DTO> queryWrapper);
+    IPage<DTO> pageRpc(IPage<DTO> page, RpcQueryWrapper<DTO> queryWrapper);
 
     // ==================== Count 统计操作 ====================
 
@@ -163,6 +164,6 @@ public interface IRpcService<DTO> {
     /**
      * 根据条件查询记录数
      */
-    long countRpc(Wrapper<DTO> queryWrapper);
+    long countRpc(RpcQueryWrapper<DTO> queryWrapper);
 
 }
